@@ -9,10 +9,14 @@ const bodyParser = require('body-parser');
 const createError = require('http-errors');
 const secureApp = require('helmet');
 const mongoClient = require('mongoose');
-const dbURL = process.env.DB_LOCALHOST || process.env.HEROKU_URL;
-//setup connect mongodb by mongo
+
+//Setup connect mongodb by mongo
+// mongodb+srv://monkeyKing:monkeyKingBar@cluster0.hepzk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority/
+// dbName: Node_Api
+// user: monkeyKing
+// password: monkeyKingBar
 mongoClient
-  .connect('mongodb://localhost/node-api', {
+  .connect(process.env.MONGODB_URL || 'mongodb://localhost/node-api', {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -81,7 +85,11 @@ app.use((err, req, res, next) => {
 });
 
 //Start the server
-const port = app.get('port') || 8080;
-app.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
+const PORT = process.env.PORT || 8080;
+
+if (process.env.NODE_ENV === 'production') {
+}
+
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
 });

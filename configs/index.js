@@ -3,7 +3,7 @@ module.exports = {
   JWT_REFRESH_TOKEN_SECRET: process.env.JWT_REFRESH_TOKEN_SECRET,
   oauth: {
     google: {
-      CLIENT_ID: process.env.GOOGLE_ClIENT_ID,
+      CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
       CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
     },
     facebook: {
