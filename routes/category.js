@@ -3,6 +3,7 @@ const CategoryController = require('../controllers/category');
 const Category = require('../models/Category');
 
 const { paginatedResults } = require('../helpers/paginationHelper');
+const roleHelper = require('../helpers/roleHelper');
 const {
   validateBody,
   validateParams,
@@ -12,7 +13,11 @@ const {
 router
   .route('/')
   .get(paginatedResults(Category), CategoryController.index)
-  .post(validateBody(schemas.categorySchema), CategoryController.newCategory);
+  .post(
+    validateBody(schemas.categorySchema),
+    roleHelper('admin'),
+    CategoryController.newCategory
+  );
 
 router
   .route('/:categoryID')
@@ -23,15 +28,18 @@ router
   .patch(
     validateParams(schemas.idSchema, 'categoryID'),
     validateBody(schemas.categoryOptionalSchema),
+    roleHelper('admin'),
     CategoryController.updateCategory
   )
   .put(
     validateParams(schemas.idSchema, 'categoryID'),
     validateBody(schemas.categorySchema),
+    roleHelper('admin'),
     CategoryController.replaceCategory
   )
   .delete(
     validateParams(schemas.idSchema, 'categoryID'),
+    roleHelper('admin'),
     CategoryController.deleteCategory
   );
 

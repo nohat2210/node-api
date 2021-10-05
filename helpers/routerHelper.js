@@ -50,11 +50,13 @@ const schemas = {
     firstName: Joi.string().min(2).required(),
     lastName: Joi.string().min(2).required(),
     email: Joi.string().email().required(),
+    role: Joi.string().required(),
   }),
   userOptionalSchema: Joi.object().keys({
     firstName: Joi.string().min(2),
     lastName: Joi.string().min(2),
     email: Joi.string().email(),
+    role: Joi.string(),
   }),
   //product
   productSchema: Joi.object().keys({

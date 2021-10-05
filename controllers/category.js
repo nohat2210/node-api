@@ -1,5 +1,6 @@
 const Category = require('../models/Category');
 const Product = require('../models/Product');
+const createError = require('http-errors');
 
 const index = async (req, res, next) => {
   return res.status(200).json(res.paginatedResults);
@@ -8,8 +9,7 @@ const index = async (req, res, next) => {
 const newCategory = async (req, res, next) => {
   const { name, description, icon } = req.value.body;
   const foundCategory = await Category.findOne({ name });
-  if (foundCategory)
-    res.status(403).json({ error: { message: 'Category already exists' } });
+  if (foundCategory) throw createError.Conflict('This category already exists');
   const newCategory = new Category({ name, description, icon });
   await newCategory.save();
   return res.status(201).json({ category: newCategory });

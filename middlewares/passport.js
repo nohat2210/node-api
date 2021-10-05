@@ -6,7 +6,6 @@ const GooglePlusStrategy = require('passport-google-plus-token');
 const FacebookStrategy = require('passport-facebook-token');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/User');
-const createError = require('http-errors');
 
 //Passport JWT
 passport.use(

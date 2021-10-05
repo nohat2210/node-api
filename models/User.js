@@ -28,6 +28,11 @@ const UserSchema = new Schema({
   birthday: {
     type: String,
   },
+  role: {
+    type: String,
+    emun: ['user', 'admin'],
+    default: 'user',
+  },
   authGoogleID: {
     type: String,
     default: null,

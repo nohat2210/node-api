@@ -1,6 +1,6 @@
 const _ = require('lodash');
 
-const paginatedResults = (model, populateItem) => {
+const paginatedResults = (model, ...populateItem) => {
   return async (req, res, next) => {
     const queryString = req.query;
     //filter
