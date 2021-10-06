@@ -2,7 +2,7 @@ const router = require('express-promise-router')();
 const CategoryController = require('../controllers/category');
 const Category = require('../models/Category');
 
-const { paginatedResults } = require('../helpers/paginationHelper');
+const paginatedResults = require('../helpers/paginationHelper');
 const roleHelper = require('../helpers/roleHelper');
 const {
   validateBody,
