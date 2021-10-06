@@ -2,7 +2,7 @@ const router = require('express-promise-router')();
 const Order = require('../models/Order');
 const OrderController = require('../controllers/order');
 
-const { paginatedResults } = require('../helpers/paginationHelper');
+const paginatedResults = require('../helpers/paginationHelper');
 const {
   validateBody,
   validateParams,

@@ -9,7 +9,7 @@ const {
   schemas,
 } = require('../helpers/routerHelper');
 
-const { paginatedResults } = require('../helpers/paginationHelper');
+const paginatedResults = require('../helpers/paginationHelper');
 
 router
   .route('/')

@@ -1,6 +1,6 @@
 const createError = require('http-errors');
 
-exports.roleHelper = (...roles) => {
+const roleHelper = (...roles) => {
   return async (req, res, next) => {
     try {
       const checkRole = await roles.includes(req.user.role);
@@ -14,3 +14,5 @@ exports.roleHelper = (...roles) => {
     }
   };
 };
+
+module.exports = roleHelper;

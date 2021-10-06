@@ -47,4 +47,4 @@ const paginatedResults = (model, ...populateItem) => {
   };
 };
 
-module.exports = { paginatedResults };
+module.exports = paginatedResults;

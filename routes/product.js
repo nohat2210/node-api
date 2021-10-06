@@ -1,6 +1,6 @@
 const router = require('express-promise-router')();
 const ProductController = require('../controllers/product');
-const { paginatedResults } = require('../helpers/paginationHelper');
+const paginatedResults = require('../helpers/paginationHelper');
 
 const {
   validateBody,
