@@ -2,7 +2,7 @@ const router = require('express-promise-router')();
 const Notification = require('../models/Notification');
 const NotificationController = require('../controllers/notification');
 
-const { paginatedResults } = require('../helpers/paginationHelper');
+const paginatedResults = require('../helpers/paginationHelper');
 const {
   validateBody,
   validateParams,
