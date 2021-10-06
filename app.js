@@ -10,11 +10,7 @@ const createError = require('http-errors');
 const secureApp = require('helmet');
 const mongoClient = require('mongoose');
 
-//Setup connect mongodb by mongo
-// mongodb+srv://monkeyKing:monkeyKingBar@cluster0.hepzk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority/
-// dbName: Node_Api
-// user: monkeyKing
-// password: monkeyKingBar
+//Setup connect mongodb by mongoose
 mongoClient
   .connect(process.env.MONGODB_URL || 'mongodb://localhost/node-api', {
     useCreateIndex: true,
