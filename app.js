@@ -49,7 +49,10 @@ app.use(
 );
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(logger('dev'));
+
+if (process.env.NODE_ENV === 'developement') {
+  app.use(logger('dev'));
+}
 
 //Routes
 app.use('/auth', authRoute);
@@ -86,9 +89,6 @@ app.use((err, req, res, next) => {
 
 //Start the server
 const PORT = process.env.PORT || 8080;
-
-if (process.env.NODE_ENV === 'production') {
-}
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
