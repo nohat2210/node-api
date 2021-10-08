@@ -46,9 +46,7 @@ app.use(
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-if (process.env.NODE_ENV === 'developement') {
-  app.use(logger('dev'));
-}
+app.use(logger('dev'));
 
 //Routes
 app.use('/auth', authRoute);
